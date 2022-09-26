@@ -5,7 +5,7 @@
 //Let's create a basic circular linked list
 #include <iostream>
 using namespace std;
-//Creating Node class
+
 class Node{
     //Creating class objects
     public:
@@ -13,22 +13,28 @@ class Node{
     Node*next;
     //Calling Node constructor
     Node(int data){
-        this->data=data;
+        this->data = data;
         next=NULL;
     }
 };
 //to add a node at end on linked list
-void append(Node*&head,int data){
-    Node*temp=head;
-    Node*new_node=new Node(data);
-    if(temp==NULL){head=new_node;new_node->next=head;return;}
-    while(temp->next!=head){temp=temp->next;}   //This condition establishes that the traversing element(temp) has reached the first element
-    temp->next=new_node;
-    new_node->next=head;
+void append(Node* &head, int data) {
+    Node*temp = head;
+    Node*newNode = new Node(data);
+    if(temp == NULL){
+        head=newNode;
+        newNode->next=head;
+        return;
+    }
+    while(temp->next!=head){
+        temp = temp->next;
+    }   //This condition establishes that the traversing element(temp) has reached the first element
+    temp->next = new_node;
+    newNode->next = head;
 }
 //to print elements of linked list from head to the last node.
-void pfun(Node*&head){
-    Node*temp=head;
+void print(Node* &head){
+    Node*temp = head;
     do{
       cout<<temp->data<<"->";
       temp = temp->next;
@@ -36,16 +42,16 @@ void pfun(Node*&head){
 }
 
 int main(){
-    Node*head=NULL;
+    Node*head = NULL;
     append(head,1);
     append(head,2);
     append(head,3);
-    pfun(head);
+    print(head);
 }
 /*
 With reference to above example of circular linked list.
 
-Line 24 i.e. while(temp->next!=head){temp=temp->next;} establishes that the traversing element/variable has reached the first element.
+Line 29 i.e. while(temp->next!=head){temp=temp->next;} establishes that the traversing element/variable has reached the first element.
 
 We Know that in circular linked list last node of linked list points to head of that linked list, hence we can check if any node points to head of linked list then that node is the end of circular linked list.
 */
@@ -65,9 +71,4 @@ Practical applications of circular linked list are :
 
 5)Implementation of Data Structure: Data structures such as stacks and queues are implemented with the help of the circular linked lists.
 
-
-
 */
-
-
-
